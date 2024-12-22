@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { InterfaceSocialService } from './interface-social/interface-social.service';
+import { UserModule } from './user/user.module';
 
 @Module({
   imports: [
@@ -22,6 +24,9 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
       }),
       inject: [ConfigService],
     }),
+    UserModule,
   ],
+  controllers: [],
+  providers: [InterfaceSocialService],
 })
 export class AppModule {}
